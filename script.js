@@ -4,6 +4,7 @@ $(document).ready(function () {
     var searchTerm = $('#search-value').val()
     console.log(searchTerm)
     weatherSearch(searchTerm)
+    forecast(searchTerm)
   })
 
   //first ajax call
@@ -37,10 +38,22 @@ $(document).ready(function () {
     $.ajax({
       url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=8f0fa8364b82a56ff6b29b97a2963b6e&units=imperial",
       method: "GET",
-
+      
 
     }).then(function (data) {
       console.log(data)
+      $('#forecast').empty()
+      // create html content forday after
+      var title = $("<h3>").addClass("card-title").text('Tomorrow');
+      var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png");
+      var card = $("<div>").addClass("card");
+      var temp = $("<p>").addClass("card-text").text("Temperature: " + data.list[4].main.temp + " °F");
+      var humid = $("<p>").addClass("card-text").text("Humidity: " + data.list[4].main.humidity + "%");
+      var cardBody = $("<div>").addClass("card-body");
+      title.append(img)
+      cardBody.append(title, temp, humid)
+      card.append(cardBody)
+      $('#forecast').append(card)
     })
 
   }
