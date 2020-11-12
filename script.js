@@ -5,6 +5,7 @@ $(document).ready(function () {
     console.log(searchTerm)
     weatherSearch(searchTerm)
     forecast(searchTerm)
+    localSearch(searchTerm)
   })
 
   //first ajax call
@@ -38,7 +39,7 @@ $(document).ready(function () {
     $.ajax({
       url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=8f0fa8364b82a56ff6b29b97a2963b6e&units=imperial",
       method: "GET",
-      
+
 
     }).then(function (data) {
       console.log(data)
@@ -55,7 +56,7 @@ $(document).ready(function () {
       card.append(cardBody)
       $('#d1').append(card)
 
-      console.log(data)
+
       $('#d2').empty()
       // create html content for two days out
       var title = $("<h3>").addClass("card-title").text('Two Days Out');
@@ -69,7 +70,7 @@ $(document).ready(function () {
       card.append(cardBody)
       $('#d2').append(card)
 
-      console.log(data)
+
       $('#d3').empty()
       // create html content for three days out
       var title = $("<h3>").addClass("card-title").text('Three Days Out');
@@ -83,7 +84,7 @@ $(document).ready(function () {
       card.append(cardBody)
       $('#d3').append(card)
 
-      console.log(data)
+
       $('#d4').empty()
       // create html content for four days out
       var title = $("<h3>").addClass("card-title").text('Four Days Out');
@@ -97,7 +98,7 @@ $(document).ready(function () {
       card.append(cardBody)
       $('#d4').append(card)
 
-      console.log(data)
+
       $('#d5').empty()
       // create html content for five days out
       var title = $("<h3>").addClass("card-title").text('Five Days Out');
@@ -114,6 +115,12 @@ $(document).ready(function () {
 
   }
   //set and get from local search history
+  function localSearch(searchTerm) {
+    $('.list-group').append($('<li>', {
+      text: $('#search-value').val()
+    }));
+  }
+
 
 
 })
