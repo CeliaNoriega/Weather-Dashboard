@@ -42,8 +42,8 @@ $(document).ready(function () {
 
     }).then(function (data) {
       console.log(data)
-      $('#forecast').empty()
-      // create html content forday after
+      $('#d1').empty()
+      // create html content for one day after
       var title = $("<h3>").addClass("card-title").text('Tomorrow');
       var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png");
       var card = $("<div>").addClass("card");
@@ -53,7 +53,63 @@ $(document).ready(function () {
       title.append(img)
       cardBody.append(title, temp, humid)
       card.append(cardBody)
-      $('#forecast').append(card)
+      $('#d1').append(card)
+
+      console.log(data)
+      $('#d2').empty()
+      // create html content for two days out
+      var title = $("<h3>").addClass("card-title").text('Two Days Out');
+      var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[12].weather[0].icon + ".png");
+      var card = $("<div>").addClass("card");
+      var temp = $("<p>").addClass("card-text").text("Temperature: " + data.list[12].main.temp + " °F");
+      var humid = $("<p>").addClass("card-text").text("Humidity: " + data.list[12].main.humidity + "%");
+      var cardBody = $("<div>").addClass("card-body");
+      title.append(img)
+      cardBody.append(title, temp, humid)
+      card.append(cardBody)
+      $('#d2').append(card)
+
+      console.log(data)
+      $('#d3').empty()
+      // create html content for three days out
+      var title = $("<h3>").addClass("card-title").text('Three Days Out');
+      var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[20].weather[0].icon + ".png");
+      var card = $("<div>").addClass("card");
+      var temp = $("<p>").addClass("card-text").text("Temperature: " + data.list[20].main.temp + " °F");
+      var humid = $("<p>").addClass("card-text").text("Humidity: " + data.list[20].main.humidity + "%");
+      var cardBody = $("<div>").addClass("card-body");
+      title.append(img)
+      cardBody.append(title, temp, humid)
+      card.append(cardBody)
+      $('#d3').append(card)
+
+      console.log(data)
+      $('#d4').empty()
+      // create html content for four days out
+      var title = $("<h3>").addClass("card-title").text('Four Days Out');
+      var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[28].weather[0].icon + ".png");
+      var card = $("<div>").addClass("card");
+      var temp = $("<p>").addClass("card-text").text("Temperature: " + data.list[28].main.temp + " °F");
+      var humid = $("<p>").addClass("card-text").text("Humidity: " + data.list[28].main.humidity + "%");
+      var cardBody = $("<div>").addClass("card-body");
+      title.append(img)
+      cardBody.append(title, temp, humid)
+      card.append(cardBody)
+      $('#d4').append(card)
+
+      console.log(data)
+      $('#d5').empty()
+      // create html content for five days out
+      var title = $("<h3>").addClass("card-title").text('Five Days Out');
+      var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[36].weather[0].icon + ".png");
+      var card = $("<div>").addClass("card");
+      var temp = $("<p>").addClass("card-text").text("Temperature: " + data.list[36].main.temp + " °F");
+      var humid = $("<p>").addClass("card-text").text("Humidity: " + data.list[36].main.humidity + "%");
+      var cardBody = $("<div>").addClass("card-body");
+      title.append(img)
+      cardBody.append(title, temp, humid)
+      card.append(cardBody)
+      $('#d5').append(card)
     })
 
   }
