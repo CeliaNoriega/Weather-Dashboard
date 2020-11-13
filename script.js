@@ -11,7 +11,7 @@ $(document).ready(function () {
   //first ajax call
   function weatherSearch(searchTerm) {
     $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=8f0fa8364b82a56ff6b29b97a2963b6e&units=imperial",
+      url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=db075c50bfa025653990b1d115218415&units=imperial",
       method: "GET",
 
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
   //ajax call for 5 day forecast
   function forecast(searchTerm) {
     $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=8f0fa8364b82a56ff6b29b97a2963b6e&units=imperial",
+      url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=db075c50bfa025653990b1d115218415&units=imperial",
       method: "GET",
 
 
